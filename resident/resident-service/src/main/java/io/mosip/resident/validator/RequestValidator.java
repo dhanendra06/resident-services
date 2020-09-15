@@ -30,6 +30,7 @@ import io.mosip.resident.dto.AuthLockOrUnLockRequestDto;
 import io.mosip.resident.dto.EuinRequestDTO;
 import io.mosip.resident.dto.RequestDTO;
 import io.mosip.resident.dto.RequestWrapper;
+import io.mosip.resident.dto.ResidentCredentialRequestDto;
 import io.mosip.resident.dto.ResidentReprintRequestDto;
 import io.mosip.resident.dto.ResidentUpdateRequestDto;
 import io.mosip.resident.dto.ResidentVidRequestDto;
@@ -466,5 +467,10 @@ public class RequestValidator {
 		if (StringUtils.isEmpty(individualIdType) || (!individualIdType.equalsIgnoreCase(IdType.UIN.name())
 				&& !individualIdType.equalsIgnoreCase(IdType.VID.name())))
 			throw new InvalidInputException("individualIdType");
+	}
+
+	public void validateCredentialRequest(@Valid RequestWrapper<ResidentCredentialRequestDto> requestDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 }

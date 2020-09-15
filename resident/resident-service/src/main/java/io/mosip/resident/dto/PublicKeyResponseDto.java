@@ -15,14 +15,16 @@ public class PublicKeyResponseDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -5038613164048257390L;
 
-	/** The public key. */
-	private String publicKey;
+	/** The Certificate. */
+	private String certificate;
 
 	/** The issued at. */
 	private String issuedAt;
 
 	/** The expiry at. */
 	private String expiryAt;
+	
+	public String publicKey;
 
 	/**
 	 * Instantiates a new public key response dto.
@@ -34,8 +36,8 @@ public class PublicKeyResponseDto implements Serializable {
 	 * @param expiryAt
 	 *            the expiry at
 	 */
-	public PublicKeyResponseDto(String publicKey, String issuedAt, String expiryAt) {
-		this.publicKey = publicKey;
+	public PublicKeyResponseDto(String certificate, String issuedAt, String expiryAt) {
+		this.certificate = certificate;
 		this.issuedAt = issuedAt;
 		this.expiryAt = expiryAt;
 	}

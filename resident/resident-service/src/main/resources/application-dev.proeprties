@@ -1,0 +1,108 @@
+auth.internal.id=mosip.identity.auth.internal
+auth.internal.version=1.0
+mosip.registration.processor.print.id=mosip.registration.print
+mosip.registration.processor.application.version=1.0
+vid.create.id=mosip.vid.create
+resident.vid.version=v1
+resident.vid.id=mosip.resident.vid
+auth.type.status.id=mosip.identity.authtype.status.update
+resident.authlock.id=mosip.resident.authlock
+resident.checkstatus.id=mosip.resident.checkstatus
+resident.euin.id=mosip.resident.euin
+resident.printuin.id=mosip.resident.printuin
+resident.uin.id=mosip.resident.uin
+resident.rid.id=mosip.resident.rid
+resident.updateuin.id=mosip.resident.updateuin
+resident.authunlock.id=mosip.resident.authunlock
+resident.authhistory.id=mosip.resident.authhistory
+mosip.resident.service.status.check.id=mosip.registration.status
+mosip.resident.service.status.check.version=1.0
+vid.revoke.id=mosip.vid.deactivate
+resident.revokevid.id=mosip.resident.vidstatus
+
+#-------------TOKEN GENERATION----------------
+#Token generation request id
+token.request.id=io.mosip.resident
+#Token generation app id
+resident.appid=resident
+#Token generation version
+token.request.version=1.0
+# Kernel auth client ID for IDA
+resident.clientId=mosip-resident-client
+# Kernel auth secret key for IDA
+resident.secretKey=abc123
+#Token genration issue url
+token.request.issuerUrl=${mosip.keycloak.issuerUrl}
+
+#--------------URI--------------------------
+#Auth Services
+KERNELAUTHMANAGER=https://dev.mosip.net/v1/authmanager/authenticate/clientidsecretkey
+REGPROCPRINT=https://dev.mosip.net/registrationprocessor/v1/print/uincard
+INTERNALAUTH=https://dev.mosip.net/idauthentication/v1/internal/auth
+INTERNALAUTHTRANSACTIONS=https://dev.mosip.net/idauthentication/v1/internal/authTransactions
+KERNELENCRYPTIONSERVICE=https://dev.mosip.net/idauthentication/v1/internal/publickey
+IDAUTHCREATEVID=https://dev.mosip.net/idrepository/v1/vid
+IDAUTHREVOKEVID=https://dev.mosip.net/idrepository/v1/vid/deactivate
+#Notification service
+IDREPOGETIDBYUIN=https://dev.mosip.net/idrepository/v1/identity/uin
+IDREPOGETIDBYRID=https://dev.mosip.net/idrepository/v1/identity/rid
+GETUINBYVID=https://dev.mosip.net/idrepository/v1/vid
+resident.notification.emails=mosiptestuser@gmail.com
+resident.notification.message=Notification has been sent to the provided contact detail(s)
+#templates
+MASTER=https://dev.mosip.net/v1/masterdata
+TEMPLATES=${MASTER}/templates
+REGPROCRESUPDATE=http://regproc-request-handler-service/registrationprocessor/v1/requesthandler/update
+SMSNOTIFIER=https://dev.mosip.net/v1/notifier/sms/send
+EMAILNOTIFIER=https://dev.mosip.net/v1/notifier/email/send
+AUTHTYPESTATUSUPDATE=http://ida-internal-service/idauthentication/v1/internal/authtypes/status
+#Regitstration processor reprint service
+REPRINTUIN=http://regproc-request-handler-service/registrationprocessor/v1/requesthandler/reprint
+#Registration status service
+REGISTRATIONSTATUSSEARCH=${dmz.ingress.base_url}/registrationprocessor/v1/registrationstatus/search
+resident.center.id=10001
+resident.machine.id=10001
+
+#----------------------config data---------------------
+resident.datetime.pattern=yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+auth.types.allowed=demo,bio-Finger,bio-Iris,bio-FACE
+
+resident.identityjson=registration-processor-identity.json
+
+-------Security properties-----------------
+#CSRF switch
+mosip.security.csrf-enable:false
+
+#secure cookie switch
+mosip.security.secure-cookie:false
+mosip.kernel.keygenerator.symmetric-algorithm-name
+mosip.keycloak.issuerUrl=http://keycloak/auth/realms/mosip
+
+#Auth Services
+CREDENTIAL_STATUS_URL=https://dev.mosip.net/v1/credentialrequest/get/
+CREDENTIAL_REQ_URL=https://dev.mosip.net/v1/credentialrequest/requestgenerator
+
+#Crypto symmetric algorithm name
+mosip.kernel.crypto.symmetric-algorithm-name=AES/GCM/PKCS5Padding
+#Keygenerator asymmetric algorithm name
+mosip.kernel.keygenerator.asymmetric-algorithm-name=RSA
+#Keygenerator symmetric algorithm name
+mosip.kernel.keygenerator.symmetric-algorithm-name=AES
+#Asymmetric algorithm key length
+mosip.kernel.keygenerator.asymmetric-key-length=2048
+#Symmetric algorithm key length
+mosip.kernel.keygenerator.symmetric-key-length=256
+#Keygenerator symmetric algorithm name
+# keygenerator asymmetric algorithm name
+#Encrypted data and encrypted symmetric key separator
+mosip.kernel.data-key-splitter=#KEY_SPLITTER#
+#GCM tag length
+mosip.kernel.crypto.gcm-tag-length=128
+#Hash algo name
+mosip.kernel.crypto.hash-algorithm-name=PBKDF2WithHmacSHA512
+#Symmtric key length used in hash
+mosip.kernel.crypto.hash-symmetric-key-length=256
+#No of iterations in hash
+mosip.kernel.crypto.hash-iteration=100000
+#Sign algo name
+mosip.kernel.crypto.sign-algorithm-name=SHA512withRSA
